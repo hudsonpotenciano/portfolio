@@ -1,0 +1,74 @@
+.content-block {
+    margin: 100px 0;
+    width: calc(100% - 100px);
+    height: calc(100vh - 400px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 50px;
+    border-radius: 20px;
+
+
+    .content-active {
+        .content-title {
+            // animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        }
+    }
+
+    .content-title {
+        font-size: 64px;
+        line-height: 55px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    .content-avatar {
+        width: 100px;
+        margin-bottom: 30px;
+        border-radius: 50%;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .content-subtitle {
+        font-size: 48px;
+        line-height: 55px;
+        color: #00adb5;
+        font-weight: bold;
+        text-align: left;
+    }
+
+
+
+    .content-text,
+    .content-experience {
+        text-align: left;
+        font-size: 32px;
+        line-height: 35px;
+        color: white;
+        font-weight: 400;
+        margin-top: 30px;
+        width: 100%;
+        white-space: pre-line;
+    }
+}
+
+
+@keyframes tracking-in-contract {
+    0% {
+        letter-spacing: 1em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}

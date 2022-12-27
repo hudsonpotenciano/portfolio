@@ -1,0 +1,18 @@
+.toggle-lang-container {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+
+    .toggle-lang {
+        margin: 0px 5px;
+        width: 30px;
+        transition: all 0.5s ease-in-out;
+        opacity: 0.4;
+        cursor: pointer;
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
