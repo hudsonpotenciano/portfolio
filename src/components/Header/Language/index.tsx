@@ -42,7 +42,7 @@ class Language extends React.Component<Props, any> {
       });
     } else {
       const navLang = languages.find((l) => l.key === navigator.language);
-      this.changeLang(navLang ?? languages[0].key);
+      this.changeLang(navLang?.key ?? languages[0].key);
     }
   }
 
