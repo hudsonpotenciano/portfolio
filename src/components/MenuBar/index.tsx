@@ -5,7 +5,6 @@ import utils from "../../utils/utils";
 
 interface Menu {
   menuActive: string;
-  intervalScroll: any;
 }
 
 interface Props {
@@ -13,13 +12,8 @@ interface Props {
 }
 
 class MenuBar extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   state: Menu = {
     menuActive: this.props.menuItems[0]?.menuIdentifier,
-    intervalScroll: undefined,
   };
 
   handleMenuChange = (menuActiveTitle: string) => {
@@ -39,14 +33,8 @@ class MenuBar extends React.Component<Props> {
     contentItem.classList.add("content-active");
   };
 
-  componentDidUpdate(): void {
-    if (!this.state.menuActive && this.props.menuItems[0]) {
-      this.setState({
-        menuActive: this.props.menuItems[0]?.menuIdentifier,
-      });
-    }
-
-    this.handleMenuChange(this.state.menuActive);
+  componentDidMount() {
+    let intervalScroll: any = undefined;
 
     const hideMenuIfInFooter = () => {
       const menu = document.getElementById("menu");
@@ -59,11 +47,12 @@ class MenuBar extends React.Component<Props> {
     };
 
     document.addEventListener("scroll", () => {
-      clearInterval(this.state.intervalScroll);
-
-      hideMenuIfInFooter();
-
       const addMoveToMenuScrollEvent = () => {
+        hideMenuIfInFooter();
+
+        clearInterval(intervalScroll);
+        intervalScroll = undefined;
+
         const contentBlocks = document.querySelectorAll(".content-block");
 
         for (let index = 0; index < contentBlocks.length; index++) {
@@ -76,8 +65,6 @@ class MenuBar extends React.Component<Props> {
             "menu-" + menuTitleId !== menuActive.id &&
             utils.isInViewport(contentBlock)
           ) {
-            clearInterval(this.state.intervalScroll);
-
             document
               .querySelector(".content-active")
               .classList.remove("content-active");
@@ -89,15 +76,25 @@ class MenuBar extends React.Component<Props> {
             this.setState({
               menuActive: newMenu.menuIdentifier,
             });
-            this.handleMenuChange(newMenu.menuIdentifier);
 
             return;
           }
         }
       };
 
-      this.state.intervalScroll = setInterval(addMoveToMenuScrollEvent, 300);
+      if (!intervalScroll)
+        intervalScroll = setInterval(addMoveToMenuScrollEvent, 500);
     });
+  }
+
+  componentDidUpdate(): void {
+    if (!this.state.menuActive && this.props.menuItems[0]) {
+      this.setState({
+        menuActive: this.props.menuItems[0]?.menuIdentifier,
+      });
+    }
+
+    this.handleMenuChange(this.state.menuActive);
   }
 
   render() {
@@ -110,7 +107,7 @@ class MenuBar extends React.Component<Props> {
     };
 
     const mountMenuItems = () => {
-      if (this.props.menuItems.length == 0) return;
+      if (this.props.menuItems.length === 0) return;
 
       let jsx: JSX.Element[] = [];
       this.props.menuItems.forEach((item) => {

@@ -1,4 +1,4 @@
-function isInViewport(el) {
+const isInViewport = function (el) {
     const rect = el.getBoundingClientRect();
     return (
         rect.top >= 0 &&
@@ -6,4 +6,5 @@ function isInViewport(el) {
     );
 }
 
-export default { isInViewport }
+const module = { isInViewport };
+export default module;

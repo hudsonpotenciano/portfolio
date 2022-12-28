@@ -53,7 +53,7 @@ class Language extends React.Component<Props, any> {
             key={lang.key}
             onClick={() => changeLang(lang.key)}
             className={`toggle-lang ${
-              this.state.lang == lang.key ? "active" : ""
+              this.state.lang === lang.key ? "active" : ""
             }`}
             src={lang.flag}
             alt=""

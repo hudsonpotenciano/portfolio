@@ -6,13 +6,9 @@ interface Props {
 }
 
 class Contacts extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   render() {
     const mountContacts = () => {
-      if (this.props.contacts.length == 0) return;
+      if (this.props.contacts.length === 0) return;
       let render: JSX.Element[] = [];
       this.props.contacts.forEach((contact: ContactModel) => {
         render.push(
@@ -21,6 +17,7 @@ class Contacts extends React.Component<Props> {
             key={contact.title}
             href={contact.link}
             target="_blank"
+            rel="noreferrer"
           >
             <img src={contact.logo} alt="" />
             <span className="contact-title">{contact.title}</span>

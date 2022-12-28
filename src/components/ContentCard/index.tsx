@@ -2,13 +2,8 @@ import * as React from "react";
 import "./index.scss";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { ExperienceModel } from "../../interfaces/experience.interface";
-import ReactDOM from "react-dom";
 
 class ContentCard extends React.Component<{ content: ExperienceModel }> {
-  constructor(props: { content: ExperienceModel }) {
-    super(props);
-  }
-
   render() {
     const mountText = (content: ExperienceModel) => {
       return content.text ? (
@@ -41,7 +36,11 @@ class ContentCard extends React.Component<{ content: ExperienceModel }> {
         id={"content-" + this.props.content.menuIdentifier}
       >
         <div className="row-center">
-          <img className="content-avatar" src={this.props.content.avatar} />
+          <img
+            className="content-avatar"
+            src={this.props.content.avatar}
+            alt={this.props.content.title}
+          />
         </div>
         <div className="content-title">{this.props.content.title}</div>
         {mountSubtitle(this.props.content)}
