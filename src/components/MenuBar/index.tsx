@@ -13,10 +13,10 @@ interface Props {
 
 class MenuBar extends React.Component<Props> {
   state: Menu = {
-    menuActive: this.props.menuItems[0]?.menuIdentifier,
+    menuActive: undefined,
   };
 
-  handleMenuChange = (menuActiveTitle: string) => {
+  handleMenuChange = (menuActiveTitle: string, moveScroll: boolean = true) => {
     const removeClass = document.querySelectorAll("content-active");
 
     removeClass.forEach((element) =>
@@ -25,11 +25,13 @@ class MenuBar extends React.Component<Props> {
 
     const contentItem = document.getElementById("content-" + menuActiveTitle);
     if (!contentItem) return;
-    contentItem.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
+    if (moveScroll) {
+      contentItem.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
     contentItem.classList.add("content-active");
   };
 
@@ -38,8 +40,9 @@ class MenuBar extends React.Component<Props> {
 
     const hideMenuIfInFooter = () => {
       const menu = document.getElementById("menu");
+      const rootHeight = document.getElementById("root").offsetHeight;
 
-      if (window.scrollY + 100 > window.outerHeight) {
+      if (window.innerHeight + window.scrollY + 100 > rootHeight) {
         menu.classList.add("hide");
       } else if (menu.classList.contains("hide")) {
         menu.classList.remove("hide");
@@ -77,13 +80,15 @@ class MenuBar extends React.Component<Props> {
               menuActive: newMenu.menuIdentifier,
             });
 
+            this.handleMenuChange(this.state.menuActive, false);
+
             return;
           }
         }
       };
 
       if (!intervalScroll)
-        intervalScroll = setInterval(addMoveToMenuScrollEvent, 500);
+        intervalScroll = setInterval(addMoveToMenuScrollEvent, 300);
     });
   }
 
@@ -92,9 +97,11 @@ class MenuBar extends React.Component<Props> {
       this.setState({
         menuActive: this.props.menuItems[0]?.menuIdentifier,
       });
-    }
 
-    this.handleMenuChange(this.state.menuActive);
+      setTimeout(() => {
+        this.handleMenuChange(this.state.menuActive);
+      }, 1000);
+    }
   }
 
   render() {
@@ -122,11 +129,11 @@ class MenuBar extends React.Component<Props> {
                 ? " menu-active"
                 : "")
             }
-            style={
-              item.menuIdentifier === this.state.menuActive
-                ? { boxShadow: `0px 0px 5px 3px ${item.color}` }
-                : {}
-            }
+            // style={
+            //   item.menuIdentifier === this.state.menuActive
+            //     ? { boxShadow: `0px 0px 5px 3px ${item.color}` }
+            //     : {}
+            // }
           >
             {item.avatar ? (
               <img

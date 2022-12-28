@@ -32,16 +32,16 @@
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: white;
+  // background-color: white;
   border: none;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .3s;
   transition: all 0.3s ease-in-out;
-  opacity: 0.6;
+  filter: brightness(0.5);
 }
 
 .menu-active {
-  opacity: 1;
+  filter: none;
   // margin-top: -12px;
 }
 
