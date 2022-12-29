@@ -1,17 +1,11 @@
 #root {
   width: 100%;
   background-color: rgb(49, 49, 49);
-  min-height: 100vh;
-  overflow: auto;
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-image: url("../../assets/images/app-background.jpg"); */
 }
 .app {
   width: 100%;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }

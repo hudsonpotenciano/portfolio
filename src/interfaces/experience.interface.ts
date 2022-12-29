@@ -7,4 +7,5 @@ export interface ExperienceModel {
   subtitle: string;
   text: any;
   color?: string;
+  level: Number;
 }

@@ -1,14 +1,10 @@
 import * as React from "react";
 import "./index.scss";
-import ContentCard from "../ContentCard";
+import ContentCard from "./ContentCard";
 import { ExperienceModel } from "../../interfaces/experience.interface";
+import { Carousel } from "react-responsive-carousel";
 
 class Content extends React.Component<{ contents: ExperienceModel[] }> {
-  // eslint-disable-next-line
-  constructor(props: { contents: ExperienceModel[] }) {
-    super(props);
-  }
-
   render() {
     const mountContents = () => {
       let jsx: JSX.Element[] = [];

@@ -1,16 +1,32 @@
 import * as React from "react";
 import "./index.scss";
+import * as ContactsServices from "../../services/contacts.service";
 
-interface Props {
+interface State {
   contacts: ContactModel[];
 }
 
-class Contacts extends React.Component<Props> {
+class Contacts extends React.Component<{}, State> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      contacts: [],
+    } as State;
+  }
+
+  componentDidMount(): void {
+    ContactsServices.getAllContacts().then((result: ContactModel[]) => {
+      this.setState({
+        contacts: result,
+      });
+    });
+  }
+
   render() {
     const mountContacts = () => {
-      if (this.props.contacts.length === 0) return;
+      if (this.state.contacts.length === 0) return;
       let render: JSX.Element[] = [];
-      this.props.contacts.forEach((contact: ContactModel) => {
+      this.state.contacts.forEach((contact: ContactModel) => {
         render.push(
           <a
             className="contact-item"

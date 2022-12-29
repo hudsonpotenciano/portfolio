@@ -1,0 +1,62 @@
+.xplevel-container {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+
+    .xplevel-items {
+        max-width: 250px;
+        margin-top: 5px;
+        background-color: grey;
+        display: inline-flex;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.377) -1px -1px 4px 0px inset;
+        border-radius: 15px;
+        padding: 4px;
+    }
+
+
+
+    .xplevel-item {
+        height: 20px;
+        width: 50px;
+    }
+
+    .xplevel-item:first-of-type {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .xplevel-item:last-of-type {
+        border-radius: 0 10px 10px 0px;
+    }
+
+    &.level-1 {
+        .xplevel-item {
+            background-color: #53def7;
+            border-radius: 10px;
+        }
+    }
+
+    &.level-2 {
+        .xplevel-item {
+            background-color: #46b6ca;
+        }
+    }
+
+    &.level-3 {
+        .xplevel-item {
+            background-color: #f9d423;
+        }
+    }
+
+    &.level-4 {
+        .xplevel-item {
+            background-color: #fc913a;
+        }
+    }
+
+    &.level-5 {
+        .xplevel-item {
+            background-color: #ff4e50;
+        }
+    }
+}
