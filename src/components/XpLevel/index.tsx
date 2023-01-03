@@ -8,7 +8,7 @@ class XpLevel extends React.Component<any> {
 
       for (let index = 1; index <= this.props.level; index++) {
         jsx.push(
-          <div key={index} className={"xplevel-item " + "item-" + index}></div>
+          <div key={index} className={`xplevel-item item-${index}`}></div>
         );
       }
 
@@ -17,7 +17,7 @@ class XpLevel extends React.Component<any> {
 
     return (
       <>
-        <div className={"xplevel-container " + "level-" + this.props.level}>
+        <div className={`xplevel-container level-${this.props.level}`}>
           <div className="xplevel-items">{mountItems()}</div>
         </div>
       </>

@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.scss";
 import { ExperienceModel } from "../../../interfaces/experience.interface";
-import utils from "../../../utils/utils";
 
 interface Menu {
   menuActive: string;
