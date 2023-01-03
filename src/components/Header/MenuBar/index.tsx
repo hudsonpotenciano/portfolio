@@ -49,37 +49,37 @@ class MenuBar extends React.Component<Props> {
       }
     };
 
-    const checkScrollInAnotherMenuItem = () => {
-      const contentBlocks = document.querySelectorAll(".content-block");
+    // const checkScrollInAnotherMenuItem = () => {
+    //   const contentBlocks = document.querySelectorAll(".content-block");
 
-      for (let index = 0; index < contentBlocks.length; index++) {
-        const contentBlock = contentBlocks[index];
+    //   for (let index = 0; index < contentBlocks.length; index++) {
+    //     const contentBlock = contentBlocks[index];
 
-        const menuTitleId = contentBlock.id.split("-")[1];
-        const menuActive = document.querySelector(".menu-active");
+    //     const menuTitleId = contentBlock.id.split("-")[1];
+    //     const menuActive = document.querySelector(".menu-active");
 
-        if (
-          "menu-" + menuTitleId !== menuActive?.id &&
-          utils.isInViewport(contentBlock)
-        ) {
-          document
-            .querySelector(".content-active")
-            ?.classList.remove("content-active");
+    //     if (
+    //       "menu-" + menuTitleId !== menuActive?.id &&
+    //       utils.isInViewport(contentBlock)
+    //     ) {
+    //       document
+    //         .querySelector(".content-active")
+    //         ?.classList.remove("content-active");
 
-          const newMenu = this.props.menuItems.find(
-            (m) => m.menuIdentifier === menuTitleId
-          );
+    //       const newMenu = this.props.menuItems.find(
+    //         (m) => m.menuIdentifier === menuTitleId
+    //       );
 
-          this.setState({
-            menuActive: newMenu.menuIdentifier,
-          });
+    //       this.setState({
+    //         menuActive: newMenu.menuIdentifier,
+    //       });
 
-          this.handleMenuChange(this.state.menuActive, false);
+    //       this.handleMenuChange(this.state.menuActive, false);
 
-          return;
-        }
-      }
-    };
+    //       return;
+    //     }
+    //   }
+    // };
 
     document.addEventListener("scroll", () => {
       const addMoveToMenuScrollEvent = () => {

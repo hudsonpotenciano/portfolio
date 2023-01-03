@@ -1,8 +1,6 @@
 import * as React from "react";
 import "./index.scss";
 
-const levelNames = [""];
-
 class XpLevel extends React.Component<any> {
   render() {
     const mountItems = () => {
