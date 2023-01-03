@@ -2,7 +2,6 @@ import * as React from "react";
 import "./index.scss";
 import ContentCard from "./ContentCard";
 import { ExperienceModel } from "../../interfaces/experience.interface";
-import { Carousel } from "react-responsive-carousel";
 
 class Content extends React.Component<{ contents: ExperienceModel[] }> {
   render() {
