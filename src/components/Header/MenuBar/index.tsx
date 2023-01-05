@@ -80,19 +80,19 @@ class MenuBar extends React.Component<Props> {
     //   }
     // };
 
-    document.addEventListener("scroll", () => {
-      const addMoveToMenuScrollEvent = () => {
-        hideMenuIfInFooter();
+    // document.addEventListener("scroll", () => {
+    //   const addMoveToMenuScrollEvent = () => {
+    //     hideMenuIfInFooter();
 
-        clearInterval(intervalScroll);
-        intervalScroll = undefined;
+    //     clearInterval(intervalScroll);
+    //     intervalScroll = undefined;
 
-        // checkScrollInAnotherMenuItem();
-      };
+    //     // checkScrollInAnotherMenuItem();
+    //   };
 
-      if (!intervalScroll)
-        intervalScroll = setInterval(addMoveToMenuScrollEvent, 300);
-    });
+    //   if (!intervalScroll)
+    //     intervalScroll = setInterval(addMoveToMenuScrollEvent, 300);
+    // });
   }
 
   componentDidUpdate(): void {

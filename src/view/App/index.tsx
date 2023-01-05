@@ -33,6 +33,7 @@ class App extends React.Component<{}, State> {
   render() {
     return (
       <>
+        <div className="background"></div>
         <Header
           menuItems={this.state.contents}
           changeLanguageRefresh={this.getContent}
@@ -40,7 +41,7 @@ class App extends React.Component<{}, State> {
         <main className="app">
           <Content contents={this.state.contents}></Content>
         </main>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </>
     );
   }
