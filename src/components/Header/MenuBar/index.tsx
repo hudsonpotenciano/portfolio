@@ -35,28 +35,22 @@ class MenuBar extends React.Component<Props> {
   };
 
   componentDidMount() {
-    let intervalScroll: any = undefined;
-
-    const hideMenuIfInFooter = () => {
-      const menu = document.getElementById("menu");
-      const rootHeight = document.getElementById("root").offsetHeight;
-
-      if (window.innerHeight + window.scrollY + 100 > rootHeight) {
-        menu.classList.add("hide");
-      } else if (menu.classList.contains("hide")) {
-        menu.classList.remove("hide");
-      }
-    };
-
+    // let intervalScroll: any = undefined;
+    // const hideMenuIfInFooter = () => {
+    //   const menu = document.getElementById("menu");
+    //   const rootHeight = document.getElementById("root").offsetHeight;
+    //   if (window.innerHeight + window.scrollY + 100 > rootHeight) {
+    //     menu.classList.add("hide");
+    //   } else if (menu.classList.contains("hide")) {
+    //     menu.classList.remove("hide");
+    //   }
+    // };
     // const checkScrollInAnotherMenuItem = () => {
     //   const contentBlocks = document.querySelectorAll(".content-block");
-
     //   for (let index = 0; index < contentBlocks.length; index++) {
     //     const contentBlock = contentBlocks[index];
-
     //     const menuTitleId = contentBlock.id.split("-")[1];
     //     const menuActive = document.querySelector(".menu-active");
-
     //     if (
     //       "menu-" + menuTitleId !== menuActive?.id &&
     //       utils.isInViewport(contentBlock)
@@ -64,32 +58,24 @@ class MenuBar extends React.Component<Props> {
     //       document
     //         .querySelector(".content-active")
     //         ?.classList.remove("content-active");
-
     //       const newMenu = this.props.menuItems.find(
     //         (m) => m.menuIdentifier === menuTitleId
     //       );
-
     //       this.setState({
     //         menuActive: newMenu.menuIdentifier,
     //       });
-
     //       this.handleMenuChange(this.state.menuActive, false);
-
     //       return;
     //     }
     //   }
     // };
-
     // document.addEventListener("scroll", () => {
     //   const addMoveToMenuScrollEvent = () => {
     //     hideMenuIfInFooter();
-
     //     clearInterval(intervalScroll);
     //     intervalScroll = undefined;
-
     //     // checkScrollInAnotherMenuItem();
     //   };
-
     //   if (!intervalScroll)
     //     intervalScroll = setInterval(addMoveToMenuScrollEvent, 300);
     // });

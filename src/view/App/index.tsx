@@ -4,7 +4,6 @@ import "./index.css";
 import * as ContentServices from "../../services/content.service";
 import { ExperienceModel } from "../../interfaces/experience.interface";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 interface State {
   contents: ExperienceModel[];
