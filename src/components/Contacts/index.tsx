@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./index.scss";
 import * as ContactsServices from "../../services/contacts.service";
+import Title from "../Title";
 
 interface State {
   contacts: ContactModel[];
@@ -43,7 +44,12 @@ class Contacts extends React.Component<{}, State> {
       return render;
     };
 
-    return <div className="contacts-container">{mountContacts()}</div>;
+    return (
+      <div className="contacts-container">
+        {/* <Title title="Contacs"></Title> */}
+        <div className="contacts-items">{mountContacts()}</div>
+      </div>
+    );
   }
 }
 

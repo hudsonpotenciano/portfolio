@@ -7,7 +7,7 @@ interface EntrieModel {
   limit: Number;
   items: [
     {
-      fields: [];
+      fields: any;
     }
   ];
 }

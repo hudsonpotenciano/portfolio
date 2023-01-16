@@ -1,0 +1,50 @@
+.experience-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    &.experience-active {}
+
+    &:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+
+    .experience-title {
+        font-size: 35px;
+        line-height: 55px;
+        font-weight: bold;
+    }
+
+
+    .experience-text,
+    .experience-experience {
+        text-align: left;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 400;
+        width: 100%;
+        white-space: pre-line;
+
+        a {
+            text-decoration: none;
+            color: rgb(74, 136, 207);
+        }
+    }
+}
+
+
+
+@keyframes slide-experience-active {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
