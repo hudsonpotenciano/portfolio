@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button from "../Button";
+import Hover3D from "../Hover3D";
 import "./index.scss";
 
 class Intro extends React.Component<{ intro: IntroModel }> {
@@ -21,7 +22,10 @@ class Intro extends React.Component<{ intro: IntroModel }> {
           </div>
         </div>
         <div className="intro-image-side">
-          <img src={this.props.intro.imageUrl} alt="" />
+          <img
+            src={require("../../assets/images/dev-vetor-intro.png")}
+            alt=""
+          />
         </div>
       </div>
     );
