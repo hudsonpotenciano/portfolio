@@ -38,7 +38,11 @@ class Header extends React.Component<Props> {
               >
                 Experiences
               </li>
-              <li>Contact</li>
+              <li
+                onClick={() => {
+                  this.goToElement("contacts");
+                }}
+              >Contact</li>
             </ul>
           </div>
           <div className="header-language">

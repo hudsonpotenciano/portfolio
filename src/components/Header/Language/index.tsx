@@ -32,6 +32,8 @@ class Language extends React.Component<Props, any> {
     if (this.props.changeLanguageRefresh) {
       this.props.changeLanguageRefresh();
     }
+
+    window.location.reload();
   };
 
   componentDidMount() {
@@ -55,9 +57,8 @@ class Language extends React.Component<Props, any> {
           <img
             key={lang.key}
             onClick={() => this.changeLang(lang.key)}
-            className={`toggle-lang ${
-              this.state.lang === lang.key ? "active" : ""
-            }`}
+            className={`toggle-lang ${this.state.lang === lang.key ? "active" : ""
+              }`}
             src={lang.flag}
             alt=""
           />

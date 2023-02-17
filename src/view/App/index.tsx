@@ -41,24 +41,23 @@ class App extends React.Component<{}, State> {
     });
   };
 
-  getWallpapers() {
-    PexelService.getWallpapers().then((photos: any[]) => {
-      this.setState({
-        wallpapers: photos.map((p) => {
-          return p.src.original;
-        }),
-      });
+  // getWallpapers() {
+  //   PexelService.getWallpapers().then((photos: any[]) => {
+  //     this.setState({
+  //       wallpapers: photos.map((p) => {
+  //         return p.src.original;
+  //       }),
+  //     });
 
-      document.getElementById("background").style.backgroundImage = `url(${
-        this.state.wallpapers[Math.floor(Math.random() * 50)]
-      })`;
-    });
-  }
+  //     document.getElementById("background").style.backgroundImage = `url(${
+  //       this.state.wallpapers[Math.floor(Math.random() * 50)]
+  //     })`;
+  //   });
+  // }
 
   componentDidMount(): void {
     this.getContent();
     this.getIntro();
-    // this.getWallpapers();
   }
 
   render() {

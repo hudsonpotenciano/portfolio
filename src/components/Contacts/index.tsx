@@ -45,7 +45,7 @@ class Contacts extends React.Component<{}, State> {
     };
 
     return (
-      <div className="contacts-container">
+      <div className="contacts-container" id="contacts">
         {/* <Title title="Contacs"></Title> */}
         <div className="contacts-items">{mountContacts()}</div>
       </div>
